@@ -1,0 +1,238 @@
+Last login: Sun May  3 11:46:12 on ttys000
+Natis-MacBook-Pro:~ nati$ git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout    Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+Natis-MacBook-Pro:~ nati$ clear
+
+Natis-MacBook-Pro:~ nati$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Natis-MacBook-Pro:~ nati$ git config --global user.email "natiamare1@gmail.com"
+Natis-MacBook-Pro:~ nati$ git config --global user.name "natiamare"
+Natis-MacBook-Pro:~ nati$ cd Users/nati/Documents/Git/MyFolder
+-bash: cd: Users/nati/Documents/Git/MyFolder: No such file or directory
+Natis-MacBook-Pro:~ nati$ cd /Users/nati/Documents/Git/MyFolder
+Natis-MacBook-Pro:MyFolder nati$ git init
+Initialized empty Git repository in /Users/nati/Documents/Git/MyFolder/.git/
+Natis-MacBook-Pro:MyFolder nati$ defaults write com.apple.finder AppleShowAllFiles YES
+Natis-MacBook-Pro:MyFolder nati$ gitstatus
+-bash: gitstatus: command not found
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+
+nothing added to commit but untracked files present (use "git add" to track)
+Natis-MacBook-Pro:MyFolder nati$ touch text1.txt
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+	text1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+Natis-MacBook-Pro:MyFolder nati$ git add text1.txt
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   text1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+
+Natis-MacBook-Pro:MyFolder nati$ git commit -m"added text1.txt"
+[master (root-commit) 19fe40a] added text1.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 text1.txt
+Natis-MacBook-Pro:MyFolder nati$ git log
+commit 19fe40a51915132db0b0d11f7eb65902adfdd4cd (HEAD -> master)
+Author: natiamare <natiamare1@gmail.com>
+Date:   Sun May 3 12:12:10 2020 +0300
+
+    added text1.txt
+Natis-MacBook-Pro:MyFolder nati$ touch index.html
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   text1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+	index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Natis-MacBook-Pro:MyFolder nati$ git add .
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   .DS_Store
+	new file:   index.html
+	modified:   text1.txt
+
+Natis-MacBook-Pro:MyFolder nati$ git commit -m"I have added index.html and modified text1.txt"
+[master 38d623c] I have added index.html and modified text1.txt
+ 3 files changed, 1 insertion(+)
+ create mode 100644 .DS_Store
+ create mode 100644 index.html
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+nothing to commit, working tree clean
+Natis-MacBook-Pro:MyFolder nati$ git remote add origin https://github.com/natiamare/Repo1.git
+Natis-MacBook-Pro:MyFolder nati$ git push -u origin master
+Username for 'https://github.com': natiamare
+Password for 'https://natiamare@github.com': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 732 bytes | 732.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://github.com/natiamare/Repo1.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   text1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Natis-MacBook-Pro:MyFolder nati$ touch instruction_to_upload.txt
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   text1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	instruction_to_upload.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Natis-MacBook-Pro:MyFolder nati$ git add instruction_to_upload.txt
+Natis-MacBook-Pro:MyFolder nati$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   instruction_to_upload.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   text1.txt
+
